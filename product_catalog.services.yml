@@ -1,0 +1,4 @@
+services:
+  product_catalog.file_reader:
+    class: Drupal\product_catalog\CSVReader
+    arguments: ['@entity_type.manager']

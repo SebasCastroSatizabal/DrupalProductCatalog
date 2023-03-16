@@ -1,0 +1,7 @@
+product_catalog.import:
+  path: '/admin/config/content/product-import'
+  defaults:
+    _form: '\Drupal\product_catalog\Form\ProductImport'
+    _title: 'Product Import'
+  requirements:
+    _permission: 'access product import'

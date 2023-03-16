@@ -1,0 +1,5 @@
+product_catalog.product_import:
+  title: 'Product Import'
+  description: 'Import Products through CSV files.'
+  route_name: product_catalog.import
+  parent: system.admin_config_content

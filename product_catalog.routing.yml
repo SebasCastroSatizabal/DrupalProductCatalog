@@ -5,3 +5,19 @@ product_catalog.import:
     _title: 'Product Import'
   requirements:
     _permission: 'access product import'
+product_catalog.user_fav_products:
+  path: '/product-catalog/products/user-favs'
+  defaults:
+    _controller: '\Drupal\product_catalog\Controller\Endpoints::get_user_fav_products'
+    _title: 'Get User Fav Products'
+  requirements:
+    _role: 'authenticated'
+  methods: [GET]
+product_catalog.set_user_fav_product:
+  path: '/product-catalog/products/user-fav'
+  defaults:
+    _controller: '\Drupal\product_catalog\Controller\Endpoints::set_user_fav_products'
+    _title: 'Set User Fav Product'
+  requirements:
+    _role: 'authenticated'
+  methods: [POST]

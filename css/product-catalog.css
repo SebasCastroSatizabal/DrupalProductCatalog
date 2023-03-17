@@ -1,0 +1,67 @@
+.view-product-catalog .views-view-grid__item {
+  position: relative;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  max-height: 200px;
+}
+
+.view-product-catalog .views-view-grid__item:hover {
+  transform: scale(1.05);
+}
+
+.view-product-catalog .views-view-grid__item-inner {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-template-rows: auto 150px;
+  grid-template-areas: "title price fav" "body body body";
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-title {
+  grid-area: title;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-title h4 {
+  margin-block: 0;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-title a {
+  text-decoration: none;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-field-price {
+  grid-area: price;
+  margin-right: .5rem;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-fav {
+  grid-area: fav;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-fav i {
+  position: relative;
+  z-index: 1;
+  font-weight: 900;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-fav i.active {
+  color: #f7cc0c;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-fav i:hover {
+  font-weight: 400;
+  color: #f7cc0c;
+}
+
+.view-product-catalog .views-view-grid__item-inner .views-field-body {
+  grid-area: body;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

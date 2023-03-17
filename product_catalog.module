@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function product_catalog_views_pre_render(ViewExecutable $view) {
+  if (($view->storage->id() == 'product_catalog')) {
+    $view->element['#attached']['library'][] = 'product_catalog/product-catalog';
+  }
+}

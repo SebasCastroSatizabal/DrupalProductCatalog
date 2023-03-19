@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Render\Markup;
+use Drupal\product_catalog\ImageSearch;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -8,5 +10,23 @@ use Drupal\views\ViewExecutable;
 function product_catalog_views_pre_render(ViewExecutable $view) {
   if (($view->storage->id() == 'product_catalog')) {
     $view->element['#attached']['library'][] = 'product_catalog/product-catalog';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function product_catalog_preprocess_views_view_field(&$variables) {
+  /** @var \Drupal\views\Plugin\views\field\EntityField $field */
+  $field = $variables['field'];
+
+  // Request for an image for the image field of the product
+  if ($field->field == 'field_image_name') {
+    $keywords = $field->original_value;
+    $image_search = new ImageSearch();
+    $url = $image_search->get_image($keywords);
+
+    $img = '<img src="' . $url . '" alt="' . $keywords . '"/>';
+    $variables['output'] = Markup::create($img);
   }
 }

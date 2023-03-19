@@ -21,3 +21,11 @@ product_catalog.set_user_fav_product:
   requirements:
     _role: 'authenticated'
   methods: [POST]
+product_catalog.image_search.settings:
+  path: '/admin/config/product_catalog/image_search/settings'
+  defaults:
+    _form: '\Drupal\product_catalog\Form\ImageSearchSettingsForm'
+    _title: 'Image Search'
+  requirements:
+    _permission: 'administer site configuration'
+

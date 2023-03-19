@@ -1,0 +1,10 @@
+product_catalog.image_search.settings:
+  type: config_object
+  label: 'Product Catalog Image Search settings'
+  mapping:
+    rapid_key:
+      type: string
+      label: 'X-RapidAPI-Key'
+    rapid_host:
+      type: string
+      label: 'X-RapidAPI-Host'

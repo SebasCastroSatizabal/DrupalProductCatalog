@@ -34,7 +34,6 @@ class ProductImport extends FormBase {
     'title',
     'body',
     'field_price',
-    'field_image_name',
   ];
 
   /**

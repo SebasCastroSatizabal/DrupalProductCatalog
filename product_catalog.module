@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Render\Markup;
+use Drupal\node\NodeInterface;
 use Drupal\product_catalog\ImageSearch;
 use Drupal\views\ViewExecutable;
 
@@ -14,19 +15,16 @@ function product_catalog_views_pre_render(ViewExecutable $view) {
 }
 
 /**
- * Implements hook_preprocess_HOOK().
+ * Implements hook_ENTITY_TYPE_presave().
  */
-function product_catalog_preprocess_views_view_field(&$variables) {
-  /** @var \Drupal\views\Plugin\views\field\EntityField $field */
-  $field = $variables['field'];
+function product_catalog_node_presave(\Drupal\Core\Entity\EntityInterface $node) {
 
-  // Request for an image for the image field of the product
-  if ($field->field == 'field_image_name') {
-    $keywords = $field->original_value;
+  // Search for an image on node creating
+  if($node->bundle() === 'products' && $node->isNew()) {
+    $keywords = $node->getTitle();
     $image_search = new ImageSearch();
     $url = $image_search->get_image($keywords);
 
-    $img = '<img src="' . $url . '" alt="' . $keywords . '"/>';
-    $variables['output'] = Markup::create($img);
+    $node->set('field_image_url', $url);
   }
 }

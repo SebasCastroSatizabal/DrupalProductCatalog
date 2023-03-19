@@ -28,12 +28,12 @@
   margin-block: 0;
 }
 
-.view-product-catalog .views-view-grid__item-inner .views-field-field-image-name {
+.view-product-catalog .views-view-grid__item-inner .views-field-field-image-url {
   grid-area: img;
   margin-right: .5rem;
 }
 
-.view-product-catalog .views-view-grid__item-inner .views-field-field-image-name img {
+.view-product-catalog .views-view-grid__item-inner .views-field-field-image-url img {
   height: 175px;
   border-radius: 5px;
   object-fit: cover;

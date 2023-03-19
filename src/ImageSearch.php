@@ -8,6 +8,7 @@ namespace Drupal\product_catalog;
 use Drupal\Component\Serialization\Json;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * The ImageSearch service class.
@@ -51,7 +52,11 @@ class ImageSearch {
       ],
     ];
 
-    $request = $this->httpClient->get(self::JOJ_IMAGE_ENDPOINT, $options);
+    try {
+      $request = $this->httpClient->get(self::JOJ_IMAGE_ENDPOINT, $options);
+    } catch (GuzzleException $e) {
+      return null;
+    }
 
     if ($request->getStatusCode() != 200) {
       return null;

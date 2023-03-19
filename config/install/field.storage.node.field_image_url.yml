@@ -3,15 +3,12 @@ status: true
 dependencies:
   module:
     - node
-  enforced:
-    module:
-      - product_catalog
-id: node.field_image_name
-field_name: field_image_name
+id: node.field_image_url
+field_name: field_image_url
 entity_type: node
 type: string
 settings:
-  max_length: 255
+  max_length: 600
   case_sensitive: false
   is_ascii: false
 module: core

@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.products
+  module:
+    - text
+  enforced:
+    module:
+      - product_catalog
+id: node.products.body
+field_name: body
+entity_type: node
+bundle: products
+label: Description
+description: 'The description of the product'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary
